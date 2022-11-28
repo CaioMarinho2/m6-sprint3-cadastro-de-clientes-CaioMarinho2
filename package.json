@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3",
+    "uuid": "^9.0.0"
+  },
+  "name": "m6-sprint3-cadastro-de-clientes-caiomarinho2",
+  "description": "Uma aplicação cadastro de clientes com vínculo de contatos, que mostra ao cliente os seus contatos vinculados.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.9",
+    "nodemon": "^2.0.20",
+    "sucrase": "^3.29.0",
+    "ts-node-dev": "^2.0.0"
+  },
+  "scripts": {
+    "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaioMarinho2/m6-sprint3-cadastro-de-clientes-CaioMarinho2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CaioMarinho2/m6-sprint3-cadastro-de-clientes-CaioMarinho2/issues"
+  },
+  "homepage": "https://github.com/CaioMarinho2/m6-sprint3-cadastro-de-clientes-CaioMarinho2#readme"
+}
