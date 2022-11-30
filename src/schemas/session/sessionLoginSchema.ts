@@ -8,4 +8,4 @@ const sessionLoginSchema= yup.object().shape({
   
 })
 
-export {sessionLoginSchema}
+export default sessionLoginSchema

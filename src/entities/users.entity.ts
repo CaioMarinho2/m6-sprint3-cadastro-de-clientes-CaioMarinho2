@@ -7,6 +7,7 @@ import {
 } from "typeorm";
 import { Exclude } from "class-transformer";
 import { Contact } from "./contacts.entity";
+import { Phone } from "./phones.entity";
 
 
 @Entity("users")
@@ -21,15 +22,15 @@ export class User {
   email: string;
 
   @Column()
-  telefone_fixo: string;
-
-  @Column()
   @Exclude()
   password: string;
 
   @CreateDateColumn()
   createdAt: Date;
 
-  @OneToMany((type) => Contact, (contacts) => contacts.user)
+  @OneToMany((type) => Phone, (phones) => phones.user,{eager: true})
+  phones: Phone[];
+
+  @OneToMany((type) => Contact, (contacts) => contacts.user,{eager: true})
   contacts: Contact[];
 }

@@ -1,12 +1,13 @@
 import {
-    Entity,
-    Column,
-    PrimaryGeneratedColumn,
-
-    ManyToOne
-  } from "typeorm";
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToOne,
+} from "typeorm";
+import { Email } from "./emails.entity";
+import { Phone } from "./phones.entity";
 import { User } from "./users.entity";
-
 
 @Entity("contacts")
 export class Contact {
@@ -16,12 +17,12 @@ export class Contact {
   @Column()
   name: string;
 
-  @Column()
-  email: string;
+  @OneToMany((type) => Phone, (phones) => phones.contacts,{eager: true})
+  phones: Phone[];
 
-  @Column()
-  telefone_fixo: string;
+  @OneToMany((type) => Email, (emails) => emails.contacts,{eager: true})
+  emails: Email[];
 
-  @ManyToOne((type) => User, (user) => user.contacts, { onDelete: 'CASCADE' })
+  @ManyToOne((type) => User, (user) => user.contacts, { onDelete: "CASCADE" })
   user: User;
 }
