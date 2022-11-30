@@ -7,7 +7,7 @@ async function contactsUpdateController(req: Request, res: Response) {
   const {id}=req.user
   const {name} = req.body;
   
-   const updatedUser=await contactsUpdateService(id, contact_id,name)
+   const updatedUser=await contactsUpdateService({id, contact_id,name})
 
    return res.status(200).json({ message: "Updated succcessfully" });
   }

@@ -5,3 +5,8 @@ export interface IContactRequest {
     id:string;
   }
   
+  export interface IContactRequestUpdate {
+    id:string;
+    contact_id: string;
+    name:string;
+  }

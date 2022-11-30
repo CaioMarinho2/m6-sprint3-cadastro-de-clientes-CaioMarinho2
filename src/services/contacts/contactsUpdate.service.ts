@@ -1,9 +1,10 @@
 import AppDataSource from "../../data-source";
 import { Contact } from "../../entities/contacts.entity";
 import { AppError } from "../../errors/AppError";
+import { IContactRequestUpdate } from "../../interfaces/contacts";
 
 
-async function contactsUpdateService(id: string, contact_id: string,name:string) {
+async function contactsUpdateService({id, contact_id,name}: IContactRequestUpdate) {
     const contactRepository=AppDataSource.getRepository(Contact);
     try {
     
