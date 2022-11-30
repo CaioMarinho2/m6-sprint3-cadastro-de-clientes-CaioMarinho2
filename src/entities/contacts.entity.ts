@@ -1,3 +1,4 @@
+import { Exclude } from "class-transformer";
 import {
   Entity,
   Column,
@@ -22,7 +23,8 @@ export class Contact {
 
   @OneToMany((type) => Email, (emails) => emails.contacts,{eager: true})
   emails: Email[];
-
+  
   @ManyToOne((type) => User, (user) => user.contacts, { onDelete: "CASCADE" })
+  @Exclude()
   user: User;
 }

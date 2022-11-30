@@ -6,12 +6,14 @@ import contactsUpdateController from '../controllers/contacts/contactsUpdate.con
 import  idOwnerVerifierMiddleware  from '../middlewares/idOwnerVerifier.middleware';
 import  schemaValidatedMiddleware  from '../middlewares/schemaValidated.middleware';
 import verifyTokenMiddleware from '../middlewares/verifyToken.middleware';
+import contactsSchema from '../schemas/contacts/contacts.schema';
+import contactsUpdateSchema from '../schemas/contacts/contactsUpdate.schema';
 
 const contactsRoutes = Router();
 
-contactsRoutes.post("",verifyTokenMiddleware,idOwnerVerifierMiddleware,contactsCreateController)
-contactsRoutes.get("",verifyTokenMiddleware,idOwnerVerifierMiddleware,contactsListController)
-contactsRoutes.delete("",verifyTokenMiddleware,idOwnerVerifierMiddleware,contactsDeleteController)
-contactsRoutes.patch("",verifyTokenMiddleware,idOwnerVerifierMiddleware,contactsUpdateController)
+contactsRoutes.post("/create/:id",verifyTokenMiddleware,idOwnerVerifierMiddleware,schemaValidatedMiddleware(contactsSchema),contactsCreateController)
+contactsRoutes.get("/:id",verifyTokenMiddleware,idOwnerVerifierMiddleware,contactsListController)
+contactsRoutes.delete("/delete/:contact_id",verifyTokenMiddleware,contactsDeleteController)
+contactsRoutes.patch("/update/:contact_id",verifyTokenMiddleware,schemaValidatedMiddleware(contactsUpdateSchema),contactsUpdateController)
 
 export default contactsRoutes;
