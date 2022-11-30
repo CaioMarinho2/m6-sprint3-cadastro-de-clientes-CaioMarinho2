@@ -3,7 +3,7 @@ import contactsCreateService from "../../services/contacts/contactsCreate.servic
 
 
 async function contactsCreateController(req: Request, res: Response) {
-    const { } = req.body;
+    const {name } = req.body;
   
     contactsCreateService
   }

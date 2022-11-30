@@ -10,8 +10,8 @@ const userSchema = yup.object().shape({
       yup
         .string()
         .matches(
-          /^[1-9]{2} (?:[2-8]|9[1-9])[0-9]{3}-[0-9]{4}$/,
-          "Phones must be valid and follow the following format: 00 00000-0000"
+            /^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)(?:((?:9\d|[2-9])\d{3})\-?(\d{4}))$/,
+          "Phones must be valid and and contain the ddd before the number"
         )
         .required()
         
