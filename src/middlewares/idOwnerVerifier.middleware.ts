@@ -16,4 +16,4 @@ const idOwnerVerifierMiddleware = async (
   }
 };
 
-export default  idOwnerVerifierMiddleware ;
+export default idOwnerVerifierMiddleware;

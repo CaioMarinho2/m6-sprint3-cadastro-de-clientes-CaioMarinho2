@@ -4,8 +4,12 @@ import { Email } from "../../entities/emails.entity";
 import { AppError } from "../../errors/AppError";
 import { IEmailRequestUpdate } from "../../interfaces/emails";
 
-async function emailUpdateService({email,email_id,id}:IEmailRequestUpdate) {
-    const emailRepository = AppDataSource.getRepository(Email);
+async function emailUpdateService({
+  email,
+  email_id,
+  id,
+}: IEmailRequestUpdate) {
+  const emailRepository = AppDataSource.getRepository(Email);
   const contactRepository = AppDataSource.getRepository(Contact);
 
   try {
@@ -16,7 +20,7 @@ async function emailUpdateService({email,email_id,id}:IEmailRequestUpdate) {
       },
     });
 
-    if (!emailFind ) {
+    if (!emailFind) {
       throw new AppError("Email not found", 404);
     }
 
@@ -34,7 +38,7 @@ async function emailUpdateService({email,email_id,id}:IEmailRequestUpdate) {
     if (contact.user.id !== id) {
       throw new AppError("Unauthorized", 401);
     }
-    await emailRepository.update(emailFind.id,{email:email});
+    await emailRepository.update(emailFind.id, { email: email });
     return true;
   } catch (error) {
     if (error instanceof Error) {
@@ -43,4 +47,4 @@ async function emailUpdateService({email,email_id,id}:IEmailRequestUpdate) {
   }
 }
 
-export default emailUpdateService
+export default emailUpdateService;

@@ -3,12 +3,11 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  OneToMany
+  OneToMany,
 } from "typeorm";
 import { Exclude } from "class-transformer";
 import { Contact } from "./contacts.entity";
 import { Phone } from "./phones.entity";
-
 
 @Entity("users")
 export class User {
@@ -28,9 +27,9 @@ export class User {
   @CreateDateColumn()
   createdAt: Date;
 
-  @OneToMany((type) => Phone, (phones) => phones.user,{eager: true})
+  @OneToMany((type) => Phone, (phones) => phones.user, { eager: true })
   phones: Phone[];
 
-  @OneToMany((type) => Contact, (contacts) => contacts.user,{eager: true})
+  @OneToMany((type) => Contact, (contacts) => contacts.user, { eager: true })
   contacts: Contact[];
 }

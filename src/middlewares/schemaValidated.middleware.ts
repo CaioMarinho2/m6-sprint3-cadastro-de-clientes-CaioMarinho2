@@ -18,4 +18,4 @@ const schemaValidatedMiddleware =
     }
   };
 
-export default schemaValidatedMiddleware ;
+export default schemaValidatedMiddleware;

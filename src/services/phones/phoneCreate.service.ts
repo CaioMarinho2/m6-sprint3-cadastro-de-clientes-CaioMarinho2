@@ -28,7 +28,6 @@ async function phoneCreateService({ id, phones, owner_id }: IPhonesRequest) {
       },
     });
 
-
     if (!contact && !user) {
       throw new AppError("Contact or User not found", 404);
     }

@@ -12,10 +12,10 @@ const handleErrorMiddleware = async (
       message: error.message,
     });
   }
- console.log({name:error.name, message:error.message})
+  console.log({ name: error.name, message: error.message });
   return res.status(500).json({
     message: "Internal server error",
   });
 };
 
-export default handleErrorMiddleware ;
+export default handleErrorMiddleware;

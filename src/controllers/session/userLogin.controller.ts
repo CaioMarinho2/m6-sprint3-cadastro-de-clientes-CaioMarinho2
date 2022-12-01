@@ -7,4 +7,4 @@ const userLoginController = async (req: Request, res: Response) => {
   return res.status(200).json(loggedUser);
 };
 
-export default userLoginController ;
+export default userLoginController;

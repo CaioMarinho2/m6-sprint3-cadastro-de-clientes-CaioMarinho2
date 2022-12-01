@@ -7,5 +7,5 @@ export interface IEmailRequest {
 export interface IEmailRequestUpdate {
   email: string;
   email_id: string;
-  id:string
+  id: string;
 }

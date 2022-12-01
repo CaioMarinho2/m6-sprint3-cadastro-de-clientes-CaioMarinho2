@@ -4,7 +4,10 @@ import { AppError } from "../../errors/AppError";
 import bcrypt from "bcrypt";
 import { IUserUpdate } from "../../interfaces/users";
 
-async function userUpdateService(id: string, {name,email,password}: IUserUpdate) {
+async function userUpdateService(
+  id: string,
+  { name, email, password }: IUserUpdate
+) {
   const userRepository = AppDataSource.getRepository(User);
   const user = await userRepository.findOne({
     where: {
@@ -16,7 +19,6 @@ async function userUpdateService(id: string, {name,email,password}: IUserUpdate)
     throw new AppError("User not found", 404);
   }
 
-
   if (email) {
     const userEmailInUse = await userRepository.findOne({
       where: { email: email },
@@ -26,16 +28,18 @@ async function userUpdateService(id: string, {name,email,password}: IUserUpdate)
     }
   }
 
+  if (password) {
+    password = bcrypt.hashSync(password, 10);
+  }
+  const updatedUser = {
+    name: name || user.name,
+    email: email || user.email,
+    password: password || user.password,
+  };
 
-    if (password) {
-      password = bcrypt.hashSync(password, 10);
-    }
-    const updatedUser={ name: name||user.name,email:email||user.email,password:password||user.password, }
-     
-    await userRepository.update(user.id, updatedUser);
+  await userRepository.update(user.id, updatedUser);
 
-    return true;
- 
+  return true;
 }
 
 export default userUpdateService;

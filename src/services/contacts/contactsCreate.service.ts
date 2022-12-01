@@ -22,14 +22,14 @@ async function contactsCreateService({
       id: id,
     },
   });
-   
+
   if (!user) {
     throw new AppError("User not found", 404);
   }
 
   const newContact = new Contact();
   newContact.name = name;
-  newContact.user=user!
+  newContact.user = user!;
 
   contactRepository.create(newContact);
   await contactRepository.save(newContact);

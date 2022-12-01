@@ -1,12 +1,5 @@
-import {
-    Entity,
-    Column,
-    PrimaryGeneratedColumn,
-    ManyToOne
-  } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 import { Contact } from "./contacts.entity";
-
-
 
 @Entity("emails")
 export class Email {
@@ -16,7 +9,8 @@ export class Email {
   @Column()
   email: string;
 
-
-  @ManyToOne((type) => Contact, (contact) => contact.emails, { onDelete: 'CASCADE' })
+  @ManyToOne((type) => Contact, (contact) => contact.emails, {
+    onDelete: "CASCADE",
+  })
   contacts: Contact;
 }

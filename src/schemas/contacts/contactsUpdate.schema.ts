@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 const contactsUpdateSchema = yup.object().shape({
-  name: yup.string().required()
+  name: yup.string().required(),
 });
 
-export default contactsUpdateSchema ;
+export default contactsUpdateSchema;

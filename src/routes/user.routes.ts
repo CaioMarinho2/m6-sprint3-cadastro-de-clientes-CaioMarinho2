@@ -17,8 +17,24 @@ userRoutes.post(
   userCreateController
 );
 
-userRoutes.get("/profile/:id",verifyTokenMiddleware,idOwnerVerifierMiddleware,userListController);
-userRoutes.delete("/delete/:id",verifyTokenMiddleware,idOwnerVerifierMiddleware,userDeleteController);
-userRoutes.patch("/update/:id",verifyTokenMiddleware,idOwnerVerifierMiddleware,schemaValidatedMiddleware(userUpdateSchema),userUpdateController);
+userRoutes.get(
+  "/profile/:id",
+  verifyTokenMiddleware,
+  idOwnerVerifierMiddleware,
+  userListController
+);
+userRoutes.delete(
+  "/delete/:id",
+  verifyTokenMiddleware,
+  idOwnerVerifierMiddleware,
+  userDeleteController
+);
+userRoutes.patch(
+  "/update/:id",
+  verifyTokenMiddleware,
+  idOwnerVerifierMiddleware,
+  schemaValidatedMiddleware(userUpdateSchema),
+  userUpdateController
+);
 
 export default userRoutes;

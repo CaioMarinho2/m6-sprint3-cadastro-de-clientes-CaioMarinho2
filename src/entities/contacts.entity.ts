@@ -18,12 +18,12 @@ export class Contact {
   @Column()
   name: string;
 
-  @OneToMany((type) => Phone, (phones) => phones.contacts,{eager: true})
+  @OneToMany((type) => Phone, (phones) => phones.contacts, { eager: true })
   phones: Phone[];
 
-  @OneToMany((type) => Email, (emails) => emails.contacts,{eager: true})
+  @OneToMany((type) => Email, (emails) => emails.contacts, { eager: true })
   emails: Email[];
-  
+
   @ManyToOne((type) => User, (user) => user.contacts, { onDelete: "CASCADE" })
   @Exclude()
   user: User;

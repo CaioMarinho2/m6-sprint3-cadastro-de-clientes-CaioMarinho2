@@ -6,4 +6,4 @@ const userUpdateSchema = yup.object().shape({
   password: yup.string(),
 });
 
-export default userUpdateSchema ;
+export default userUpdateSchema;
