@@ -27,6 +27,6 @@ const userLoginService = async ({ email, password }: ISessionLogin) => {
     expiresIn: "24h",
   });
 
-  return { token: token };
+  return { token: token,id:user.id };
 };
 export default userLoginService;
