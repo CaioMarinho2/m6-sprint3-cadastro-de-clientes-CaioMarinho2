@@ -25,7 +25,6 @@ async function contactsUpdateService({
     }
 
     await contactRepository.update(contact.id, { name: name });
-    console.log(contact);
 
     return true;
   } catch (error) {

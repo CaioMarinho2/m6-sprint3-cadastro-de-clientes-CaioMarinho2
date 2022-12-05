@@ -34,7 +34,6 @@ async function userCreateService({
   await userRepository.save(newUser);
 
   phones.map(async (phone) => {
-    console.log(phone);
     const newPhone = new Phone();
     newPhone.phone = phone;
     newPhone.user = newUser;
@@ -43,7 +42,6 @@ async function userCreateService({
     await phonesRespository.save(newPhone);
   });
 
-  console.log(newUser);
   return newUser;
 }
 

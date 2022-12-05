@@ -11,7 +11,6 @@ async function contactsDeleteService(id: string, contact_id: string) {
         id: contact_id,
       },
     });
-    console.log(contact);
     if (!contact) {
       throw new AppError("Contact not found", 404);
     }

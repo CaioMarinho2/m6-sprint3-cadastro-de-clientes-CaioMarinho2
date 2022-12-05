@@ -35,7 +35,6 @@ async function contactsCreateService({
   await contactRepository.save(newContact);
 
   phones.map(async (phone) => {
-    console.log(phone);
     const newPhone = new Phone();
     newPhone.phone = phone;
     newPhone.contacts = newContact;
@@ -45,7 +44,6 @@ async function contactsCreateService({
   });
 
   emails.map(async (email) => {
-    console.log(email);
     const newEmail = new Email();
     newEmail.email = email;
     newEmail.contacts = newContact;

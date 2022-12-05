@@ -8,9 +8,11 @@ const verifyTokenMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
-  const { authorization } = req.headers;
+  const { Authorization } = req.headers;
 
-  const token = authorization?.split(" ")[1];
+  let token = req.headers.authorization;
+
+  token = token!.split(" ")[1];
 
   if (!token)
     return res.status(401).json({ message: "Missing authorization token" });

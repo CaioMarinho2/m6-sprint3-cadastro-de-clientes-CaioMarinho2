@@ -29,7 +29,6 @@ async function emailCreateService({ id, contact_id, emails }: IEmailRequest) {
 
     let arrReturn: Array<object> = [];
     emails.map(async (email) => {
-      console.log(email);
       const newEmail = new Email();
       newEmail.email = email;
       newEmail.contacts = contact;
