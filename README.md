@@ -1,6 +1,6 @@
 # Sobre o projeto
 
-Uma aplicação de cadastro de clientes com vínculo de contatos, onde um usuário pode cadastrar vários contatos e seus contatos podem ter vário numeros e vários emails, um usuário também pode ter vários numeros vinculados a ele.
+Uma aplicação de Uma aplicação de gerenciamento de contatos , onde um usuário pode cadastrar vários contatos e seus contatos podem ter vário numeros e vários emails, um usuário também pode ter vários numeros vinculados a ele.
 
 # Como instalar e rodar a aplicação
 
@@ -8,9 +8,11 @@ Uma aplicação de cadastro de clientes com vínculo de contatos, onde um usuár
 
 2- Instale todas as dependências necessárias com o comando : `yarn`
 
-3- Rode as migrations com o : `yarn typeorm migration:run -d src/data-source.ts`
+3- Crie um arquivo .env, siga o exemplo do arquivo .env.example e preencha os dados necessário
 
-4- Por fim é só rodar a aplicação com o comando: `yarn dev`
+4- Rode as migrations com o : `yarn typeorm migration:run -d src/data-source.ts`
+
+5- Por fim é só rodar a aplicação com o comando: `yarn dev`
 
 # Rotas
 **BASE_URL: http://localhost:3001**
