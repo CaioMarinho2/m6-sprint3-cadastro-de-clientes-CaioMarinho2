@@ -33,24 +33,27 @@ async function contactsCreateService({
 
   contactRepository.create(newContact);
   await contactRepository.save(newContact);
+  await Promise.all(
+    phones.map(async (phone) => {
+      const newPhone = new Phone();
+      newPhone.phone = phone;
+      newPhone.contacts = newContact;
 
-  phones.map(async (phone) => {
-    const newPhone = new Phone();
-    newPhone.phone = phone;
-    newPhone.contacts = newContact;
+      phonesRespository.create(newPhone);
+      await phonesRespository.save(newPhone);
+    })
+  );
 
-    phonesRespository.create(newPhone);
-    await phonesRespository.save(newPhone);
-  });
+  await Promise.all(
+    emails.map(async (email) => {
+      const newEmail = new Email();
+      newEmail.email = email;
+      newEmail.contacts = newContact;
 
-  emails.map(async (email) => {
-    const newEmail = new Email();
-    newEmail.email = email;
-    newEmail.contacts = newContact;
-
-    emailsRespository.create(newEmail);
-    await emailsRespository.save(newEmail);
-  });
+      emailsRespository.create(newEmail);
+      await emailsRespository.save(newEmail);
+    })
+  );
 
   return newContact;
 }

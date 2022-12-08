@@ -6,7 +6,7 @@ Uma aplicação de Uma aplicação de gerenciamento de contatos , onde um usuár
 
 1- Clone o repositório para a sua maquina
 
-2- Instale todas as dependências necessárias com o comando : `yarn`
+2- Instale todas as dependências necessárias com o comando : `yarn` ou  `npm install`
 
 3- Crie um arquivo .env, siga o exemplo do arquivo .env.example e preencha os dados necessário
 

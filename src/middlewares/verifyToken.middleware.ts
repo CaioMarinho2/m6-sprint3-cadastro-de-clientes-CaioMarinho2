@@ -8,8 +8,6 @@ const verifyTokenMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
-  const { Authorization } = req.headers;
-
   let token = req.headers.authorization;
 
   token = token!.split(" ")[1];

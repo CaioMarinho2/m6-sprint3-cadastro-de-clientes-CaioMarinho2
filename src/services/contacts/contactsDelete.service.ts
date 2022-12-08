@@ -24,6 +24,9 @@ async function contactsDeleteService(id: string, contact_id: string) {
     return contact;
   } catch (error) {
     if (error instanceof Error) {
+      if (error.message === "Unauthorized") {
+        throw new AppError(error.message, 401);
+      }
       throw new AppError(error.message, 404);
     }
   }

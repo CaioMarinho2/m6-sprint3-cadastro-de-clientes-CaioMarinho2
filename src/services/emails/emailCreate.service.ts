@@ -28,16 +28,18 @@ async function emailCreateService({ id, contact_id, emails }: IEmailRequest) {
     }
 
     let arrReturn: Array<object> = [];
-    emails.map(async (email) => {
-      const newEmail = new Email();
-      newEmail.email = email;
-      newEmail.contacts = contact;
+    await Promise.all(
+      emails.map(async (email) => {
+        const newEmail = new Email();
+        newEmail.email = email;
+        newEmail.contacts = contact;
 
-      emailRepository.create(newEmail);
+        emailRepository.create(newEmail);
 
-      arrReturn.push({ email: newEmail.email, message: "created" });
-      await emailRepository.save(newEmail);
-    });
+        arrReturn.push({ email: newEmail.email, message: "created" });
+        await emailRepository.save(newEmail);
+      })
+    );
 
     return arrReturn;
   } catch (error) {

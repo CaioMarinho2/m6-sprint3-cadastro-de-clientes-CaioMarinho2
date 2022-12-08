@@ -29,6 +29,9 @@ async function contactsUpdateService({
     return true;
   } catch (error) {
     if (error instanceof Error) {
+      if (error.message === "Unauthorized") {
+        throw new AppError(error.message, 401);
+      }
       throw new AppError(error.message, 404);
     }
   }

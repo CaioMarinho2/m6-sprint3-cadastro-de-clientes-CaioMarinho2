@@ -38,16 +38,18 @@ async function phoneCreateService({ id, phones, owner_id }: IPhonesRequest) {
       }
 
       let arrReturn: Array<object> = [];
-      phones.map(async (phone) => {
-        const newPhone = new Phone();
-        newPhone.phone = phone;
-        newPhone.contacts = contact;
+      await Promise.all(
+        phones.map(async (phone) => {
+          const newPhone = new Phone();
+          newPhone.phone = phone;
+          newPhone.contacts = contact;
 
-        phoneRepository.create(newPhone);
+          phoneRepository.create(newPhone);
 
-        arrReturn.push({ email: newPhone.phone, message: "created" });
-        await phoneRepository.save(newPhone);
-      });
+          arrReturn.push({ email: newPhone.phone, message: "created" });
+          await phoneRepository.save(newPhone);
+        })
+      );
 
       return arrReturn;
     }
@@ -58,16 +60,18 @@ async function phoneCreateService({ id, phones, owner_id }: IPhonesRequest) {
       }
 
       let arrReturn: Array<object> = [];
-      phones.map(async (phone) => {
-        const newPhone = new Phone();
-        newPhone.phone = phone;
-        newPhone.user = user;
+      await Promise.all(
+        phones.map(async (phone) => {
+          const newPhone = new Phone();
+          newPhone.phone = phone;
+          newPhone.user = user;
 
-        phoneRepository.create(newPhone);
+          phoneRepository.create(newPhone);
 
-        arrReturn.push({ email: newPhone.phone, message: "created" });
-        await phoneRepository.save(newPhone);
-      });
+          arrReturn.push({ email: newPhone.phone, message: "created" });
+          await phoneRepository.save(newPhone);
+        })
+      );
 
       return arrReturn;
     }
